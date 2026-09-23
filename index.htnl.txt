@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avira - Luxury Essentials</title>
+    <style>
+        :root {
+            --bg-color: #f7f5f0;
+            --text-color: #2c2c2c;
+            --accent-color: #8c7355;
+            --card-bg: #ffffff;
+            --border-color: #e3dec3;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--card-bg);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #f7f5f0, #eae5d9);
+        }
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        .hero p {
+            font-size: 16px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        .product-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .product-card .price {
+            font-size: 18px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .buy-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buy-btn:hover {
+            background-color: #6d5840;
+        }
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            color: #666;
+            font-size: 14px;
+        }
+        /* Modal Popup Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .modal-content h2 {
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        .close-btn {
+            background: #ccc;
+            color: #333;
+            border: none;
+            padding: 8px 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AVIRA</div>
+        <nav>
+            <a onclick="scrollToSection('home')">Home</a>
+            <a onclick="scrollToSection('shop')">Shop</a>
+            <a onclick="scrollToSection('about')">About</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Elevate Your Everyday Living</h1>
+        <p>Discover premium curated essentials designed for modern luxury and unmatched convenience.</p>
+    </section>
+
+    <div class="container" id="shop">
+        <h2 class="section-title">Featured Collection</h2>
+        <div class="products-grid">
+            
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="mop.png" alt="Squeeze Mop">
+                <h3>Avira Squeeze Mop Head</h3>
+                <div class="price">Rs. 1,499</div>
+                <button class="buy-btn" onclick="openCheckout('Avira Squeeze Mop Head', 'Rs. 1,499')">Buy Now</button>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="chopper.png" alt="Smart Chopper">
+                <h3>The Avira Chef Precision Chopper</h3>
+                <div class="price">Rs. 2,449</div>
+                <button class="buy-btn" onclick="openCheckout('The Avira Chef Precision Chopper', 'Rs. 2,449')">Buy Now</button>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="chopper2.png" alt="Compact Chopper">
+                <h3>Avira Pro Push Chopper</h3>
+                <div class="price">Rs. 1,899</div>
+                <button class="buy-btn" onclick="openCheckout('Avira Pro Push Chopper', 'Rs. 1,899')">Buy Now</button>
+            </div>
+
+        </div>
+    </div>
+
+    <section id="about" style="padding: 40px 20px; text-align: center; background: #eae5d9; margin-top: 40px;">
+        <h2 style="color: var(--accent-color); margin-bottom: 15px;">Secure Direct Checkout & Policies</h2>
+        <p style="max-width: 700px; margin: 0 auto; color: #444; font-size: 14px; text-align: left;">
+            <strong>1. Advance Payment:</strong> All orders require 100% advance payment to secure the luxury product and exclusive service.<br>
+            <strong>2. Defective Replacement:</strong> Only defective or incorrect items will be replaced with a fresh piece within the specified time frame.<br>
+            <strong>3. No Refund:</strong> We do not offer refunds under any circumstances due to the exclusivity of our products.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Avira Store. All rights reserved. | Strict Store Policies Applied.</p>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalProductTitle">Checkout</h2>
+            <p id="modalProductPrice" style="margin-bottom: 15px; font-weight: bold; color: var(--accent-color);"></p>
+            <input type="text" id="custName" placeholder="Enter Full Name" required>
+            <input type="text" id="custPhone" placeholder="Enter Phone Number" required>
+            <input type="text" id="custAddress" placeholder="Enter Delivery Address" required>
+            <button class="buy-btn" style="width: 100%; margin-top: 10px;" onclick="completeOrder()">Place Order via WhatsApp</button>
+            <br>
+            <button class="close-btn" onclick="closeCheckout()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openCheckout(productName, price) {
+            document.getElementById('modalProductTitle').innerText = productName;
+            document.getElementById('modalProductPrice').innerText = price;
+            document.getElementById('checkoutModal').style.display = 'flex';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function completeOrder() {
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+            const productName = document.getElementById('modalProductTitle').innerText;
+            const productPrice = document.getElementById('modalProductPrice').innerText;
+
+            if(name && phone && address) {
+                const message = `New Order!%0AProduct: ${productName}%0APrice: ${productPrice}%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}`;
+                const whatsappUrl = `https://wa.me/917082576926?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+                closeCheckout();
+            } else {
+                alert("Kripya saari details (Name, Phone, Address) thik se bharein!");
+            }
+        }
+    </script>
+</body>
+</html>
