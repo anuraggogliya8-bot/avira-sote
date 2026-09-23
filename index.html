@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avira — The Art of Effortless Living</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7f5f0;
+            color: #1a1a1a;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #f7f5f0;
+            border-bottom: 1px solid #e3dec9;
+        }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4a4a4a;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #4a4a4a;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover;
+            height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .hero p {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .container {
+            max-width: 1200px;
+            margin: -40px auto 40px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .product-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid #e8e3d5;
+        }
+        .product-img-container {
+            height: 240px;
+            width: 100%;
+            background-color: #f7f5f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        .product-img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .product-name {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .product-price {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .btn-buy {
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-buy:hover {
+            background: #333;
+        }
+        .checkout-box {
+            background: #ffffff;
+            border: 1px solid #e3dec9;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .checkout-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f0ece1;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        .amount-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #faf8f5;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #f0ece1;
+        }
+        .amount-row strong {
+            font-size: 20px;
+            color: #1a1a1a;
+        }
+        .gpay-btn {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .policies-box {
+            background: #f4f1e8;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 11px;
+            color: #444;
+            line-height: 1.5;
+            border: 1px solid #e8e3d5;
+        }
+        .policies-box h4 {
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        .policies-box p {
+            margin-bottom: 6px;
+        }
+        footer {
+            background: #141414;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid #333;
+        }
+        footer p {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-links">
+            <span>Shop</span>
+            <span>Our Story</span>
+            <span>Journal</span>
+        </div>
+        <div class="logo">Avira</div>
+        <div class="nav-icons">
+            <span>Search</span>
+            <span>Account</span>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>The Art of Effortless Living</h1>
+        <p>Curated Luxury Home Essentials</p>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Featured Creations</h2>
+        <div class="product-grid">
+            <!-- Product 1: Mop -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="mop.png" alt="Avira Squeeze Mop" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Avira Squeeze | Mop Head</div>
+                    <div class="product-price">?1,499</div>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <!-- Product 2: Chopper 1 -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="chopper.png" alt="The Avira Chef Precision Chopper" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">The Avira Chef | Precision Chopper</div>
+                    <div class="product-price">?2,449</div>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <!-- Product 3: Chopper 2 -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="chopper2.png" alt="Avira Push Chopper" class="product-img">
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Avira Pro | Push Chopper</div>
+                    <div class="product-price">?1,899</div>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secure Direct Checkout Box -->
+        <div class="checkout-box">
+            <div class="checkout-title">Secure Direct Checkout & Policies</div>
+            <div class="amount-row">
+                <span>Total Amount to Pay</span>
+                <strong>?5,847</strong>
+            </div>
+            <button class="gpay-btn">Pay with Google Pay (Direct UPI App Link)</button>
+            
+            <div class="policies-box">
+                <h4>Company Policies & Terms</h4>
+                <p><strong>1. Advance Payment:</strong> All orders require 100% advance payment to secure the luxury product and exclusive service.</p>
+                <p><strong>2. Defective Replacement:</strong> Only defective or incorrect items will be replaced with a fresh piece within the specified time frame.</p>
+                <p><strong>3. No Refund:</strong> We do not offer refunds under any circumstances due to the exclusivity of our products.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Avira Living. All rights reserved.</p>
+        <p>By placing an order, you agree to adhere to our terms and policies.</p>
+    </footer>
+
+</body>
+</html>
